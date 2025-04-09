@@ -1,0 +1,15 @@
+{
+  "name": "asap",
+  "version": "1.0.0",
+  "description": "This project will allow users to log in and contribute to a list of the weirdest, funniest, and most unexpected moments in cricket history. The list will be dynamic, changing based on user contributions and votes. Users can submit moments, upvote or downvote them, and filter through different categories (e.g., \"Funniest Run-outs,\" \"Weirdest Catches,\" \"Unexpected Umpire Decisions,\" etc.).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
