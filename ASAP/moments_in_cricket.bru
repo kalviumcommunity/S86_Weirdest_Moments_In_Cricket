@@ -1,0 +1,21 @@
+meta {
+  name: moments_in_cricket
+  type: http
+  seq: 2
+}
+
+delete {
+  url: http://localhost:5000/moments/67f78a0c702d9f36101a4da8
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title":"eagle on the pictch",
+    "description":"an eagle caught on the pich while focusing on pitch",
+    "teamA":"india",
+    "teamB":"england",
+    "matchdate":"13-04-2007"
+  }
+}
