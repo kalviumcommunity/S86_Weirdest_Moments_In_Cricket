@@ -1,0 +1,104 @@
+/* Make the entire app centered vertically and horizontally */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+.landing {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom, #d4f7dc, #ffffff);
+}
+
+
+.title {
+  font-size: 2.5rem;
+  color: #116530;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #116530;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #0c4d24;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #116530;
+  color: #116530;
+}
+
+.btn.secondary:hover {
+  background-color: #daf5e6;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  color: #116530;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #555;
+}
+
+@media (min-width: 768px) {
+  .features {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex: 1;
+  }
+}
