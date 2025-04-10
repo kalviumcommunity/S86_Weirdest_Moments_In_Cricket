@@ -1,29 +1,28 @@
-require('dotenv').config(); // Load environment variables
-
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const routes = require('./routes');
+
+dotenv.config(); // Load environment variables
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
-// MongoDB connection
-const dbUrl = process.env.DB_URL;
+// Middleware to parse JSON
+app.use(express.json());
 
-mongoose.connect(dbUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log('✅ Connected to MongoDB');
-}).catch((err) => {
-  console.error('❌ MongoDB connection error:', err);
-});
+// Use main routes file
+app.use(routes);
 
-// Basic test route
-app.get('/ping', (req, res) => {
-  res.send('pong');
-});
+// Connect to MongoDB
+mongoose.connect(process.env.DB_URL)
+  .then(() => {
+    console.log('✅ Connected to MongoDB Atlas');
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
-});
+    app.listen(PORT, () => {
+      console.log(`🚀 Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error('❌ MongoDB connection failed:', err.message);
+  });
