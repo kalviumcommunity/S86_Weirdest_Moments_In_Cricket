@@ -21,3 +21,5 @@ This project is unique, aligns with the "as silly as possible" guideline, and is
 
 
 ## Deployment Link : **https://s86-weirdest-moments-in-cricket.onrender.com**
+
+## Frontend Deployment Link : **https://weirdest-moments-in-cricket.netlify.app/**
