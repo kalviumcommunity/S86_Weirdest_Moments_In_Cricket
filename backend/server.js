@@ -1,33 +1,23 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const app = express();
+const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
-const cricketLawRoutes = require("./routes/cricketlawRoutes");
-const PORT = 3000;
+require("dotenv").config();
 
-dotenv.config();
+const app = express();
+
+// Middleware
 app.use(express.json());
 app.use(cors());
 
-//momgooDB connection
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }) // ✅ Fixed env var name
-  .then(() => console.log('MongoDB is connected'))
-  .catch((err) => console.error("MongoDB connection failed", err));
+// MongoDB connection
+mongoose.connect(process.env.MONGODB_URI, {
+  
+}).then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.log("MongoDB connection error:", err));
 
+// Routes
+app.use("/api", require("./routes/authRoutes"));
+app.use("/api/moments", require("./routes/momentRoutes"));
 
-app.get('/',(req,res)=> {
-  res.status(200).send('Hey, This is Harikrishna Reddy');
-})
-
-// Basic /ping route
-app.get('/ping', (req, res) => {
-  res.status(200).send('pong');
-});
-
-//Routes
-app.use("/cricket-laws", cricketLawRoutes);
-
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server running on port ${port}`));
